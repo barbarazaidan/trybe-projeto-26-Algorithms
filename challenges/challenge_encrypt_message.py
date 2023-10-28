@@ -1,5 +1,4 @@
 def encrypt_message(message: str, key: int):
-
     if not isinstance(key, int):
         raise TypeError("tipo inválido para key")
 
