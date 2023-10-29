@@ -6,9 +6,12 @@ def study_schedule(permanence_period, target_time):
     for index in range(n):
         start_time = permanence_period[index][0]
         end_time = permanence_period[index][1]
-        if start_time is None or end_time is None:
-            return None
-        if not isinstance(start_time, int) or not isinstance(end_time, int):
+        if (
+            start_time is None
+            or end_time is None
+            or not isinstance(start_time, int)
+            or not isinstance(end_time, int)
+        ):
             return None
         if start_time <= target_time <= end_time:
             count += 1
