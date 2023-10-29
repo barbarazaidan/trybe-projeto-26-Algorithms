@@ -46,19 +46,21 @@ def order_list(list, start, end):
         # junta as duas listas
         merge_sort(list, start, mid, end)
 
+    return list
+
 
 def is_anagram(first_string, second_string):
-    first_list = list(first_string)
-    second_list = list(second_string)
+    first_list = list(first_string.lower())
+    second_list = list(second_string.lower())
     start_list = 0
     end_first_list = len(first_list)
     end_second_list = len(second_list)
 
-    order_list(first_list, start_list, end_first_list)
-    order_list(second_list, start_list, end_second_list)
+    first_order_list = order_list(first_list, start_list, end_first_list)
+    second_order_list = order_list(second_list, start_list, end_second_list)
 
-    first_string = "".join(first_list)
-    second_string = "".join(second_list)
+    first_string = "".join(first_order_list)
+    second_string = "".join(second_order_list)
 
     if first_string != second_string:
         return (first_string, second_string, False)
@@ -67,4 +69,4 @@ def is_anagram(first_string, second_string):
     return (first_string, second_string, True)
 
 
-print(is_anagram("roma", "amor"))
+print(is_anagram("Roma", "amor"))
